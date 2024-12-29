@@ -1,0 +1,349 @@
+.maxvh {
+  height: 100vh;
+}
+
+.maxvw {
+  width: 100vw;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0; /* Light gray background for better visibility */
+  margin: 0;
+}
+
+.pokeball {
+  position: fixed; /* Makes the Pokéball stay in one place relative to the viewport */
+  top: -2.5rem;       /* Adjusts the position from the top */
+  right: -2.5rem;     /* Adjusts the position from the right */
+  width: 230px;    /* Adjusts the size of the Pokéball */
+  height: 230px;
+  transform: rotate(30deg);
+  background-size: 100% 50%;
+  background-repeat: no-repeat;
+  border: 10px solid #cbd5e1;
+  border-radius: 50%;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+  z-index: -1; /* Ensures the Pokéball does not interfere with other content */
+}
+
+.pokeball::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 14px;
+  background: #cbd5e1;
+  transform: translateY(-50%);
+}
+
+.button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 70px;
+  height: 70px;
+  background: #f1f5f9;
+  border: 15px solid #cbd5e1;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border: 10px solid #e2e8f0;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.pokeball-card {
+  position: absolute; /* Makes the Pokéball stay in one place relative to the viewport */
+  top: 1rem; /* Adjusts the position from the top */
+  right: 1rem; /* Adjusts the position from the right */
+  width: 100px; /* Adjusts the size of the Pokéball */
+  height: 100px;
+  transform: rotate(30deg);
+  background-size: 100% 50%;
+  background-repeat: no-repeat;
+  border: 8px solid rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.1) 100%);
+  overflow: hidden; /* Ensures no overflow from children */
+}
+
+.pokeball-card::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background: rgba(0, 0, 0, 0.3);
+  transform: translateY(-50%);
+  z-index: 1; /* Ensures the line stays behind the button */
+}
+
+.button-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  background: rgba(255, 255, 255, 1); /* Solid white button core */
+  border: 8px solid rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2; /* Ensures the button is on top */
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.button-card::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  background: rgba(0, 0, 0, 0.3); /* Inner circle color */
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+.pokeball-detail-poke {
+  position: absolute; /* Makes the Pokéball stay in one place relative to the viewport */
+  bottom: 0rem; /* Adjusts the position from the top */
+  right: -3rem; /* Adjusts the position from the right */
+  width: 200px; /* Adjusts the size of the Pokéball */
+  height: 200px;
+  transform: rotate(30deg);
+  background-size: 100% 50%;
+  background-repeat: no-repeat;
+  border: 15px solid rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0) 50%, rgba(0, 0, 0, 0.1) 100%);
+  overflow: hidden; /* Ensures no overflow from children */
+}
+
+.pokeball-detail-poke::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 15px;
+  background: rgba(0, 0, 0, 0.3);
+  transform: translateY(-50%);
+  z-index: 1; /* Ensures the line stays behind the button */
+}
+
+.button-detail-poke {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 1); /* Solid white button core */
+  border: 16px solid rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2; /* Ensures the button is on top */
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.button-detail-poke::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.3); /* Inner circle color */
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+.image-size-lg {
+  width: 300px;
+  height: 300px;
+  margin-top: -250px /* -192px */;
+}
+
+.semiTransparent {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.textSecondary { 
+  color: #838586;
+}
+.textPrimary { 
+  color: #343943;
+}
+.mainBg { 
+  background-color: #F4FFFF;
+  color: #fff;
+
+}
+.fire { 
+  background-color: #FC6C6D;
+  color: #fff;
+
+}
+.grass { 
+  background-color: #49D0B1;
+  color: #fff;
+
+}
+.water { 
+  background-color: #76BEFF;
+  color: #fff;
+
+}
+.normal { 
+  background-color: #CEE0EF;
+  color: #fff;
+
+} 
+.fighting { 
+  background-color: #869783;
+  color: #fff;
+
+}
+.flying { 
+  background-color: #E7ACAD;
+  color: #fff;
+
+}
+.poison { 
+  background-color: #1C8092;
+  color: #fff;
+
+}
+.ground { 
+  background-color: #C3B167;
+  color: #fff;
+
+}
+.rock { 
+  background-color: #869783;
+  color: #fff;
+
+}
+.bug {
+  background-color: #A9D391;
+  color: #fff;
+
+ }
+.ghost { 
+  background-color: #3E4A48;
+  color: #fff;
+
+}
+.steel { 
+  background-color: #A9BEE2;
+  color: #fff;
+
+}
+.electric { 
+  background-color: #FDCB4F;
+  color: #fff;
+
+}
+.psychic { 
+  background-color: #A04741;
+  color: #fff;
+
+}
+.ice { 
+  background-color: #85CAFE;
+  color: #fff;
+
+}
+.dragon { 
+  background-color: #F47A31;
+  color: #fff;
+
+}
+.dark { 
+  background-color: #333A41;
+  color: #fff;
+
+} 
+.fairy { 
+  background-color: #F8706F;
+  color: #fff;
+
+}
+.stellar { 
+  background-color: #C3B167;
+  color: #fff;
+
+}
+
+
+/* Medium Screens (e.g., tablets) */
+@media (min-width: 577px) {
+  .pokeball-detail-poke {
+    bottom: -2rem;
+    width: 350px; /* Larger than on small screens */
+    height: 350px;
+    border: 25px solid rgba(0, 0, 0, 0.3);
+  }
+
+  .pokeball-detail-poke::before {
+    height: 25px;
+  }
+
+  .button-detail-poke {
+    width: 100px;
+    height: 100px;
+    border: 20px solid rgba(0, 0, 0, 0.3);
+  }
+
+  .image-size-lg {
+    width: 400px;
+    height: 400px;
+    margin-top: -350px /* -192px */;
+  }
+}
+
+/* Large Screens (e.g., desktops) */
+@media (min-width: 993px) {
+  .pokeball-detail-poke {
+    bottom: -6rem;
+    width: 600px; /* Largest size for large screens */
+    height: 600px;
+    border: 40px solid rgba(0, 0, 0, 0.3);
+  }
+
+  .pokeball-detail-poke::before {
+    height: 40px;
+  }
+
+  .button-detail-poke {
+    width: 150px;
+    height: 150px;
+    border: 30px solid rgba(0, 0, 0, 0.3);
+  }
+
+  .image-size-lg {
+    width: 700px;
+    height: 700px;
+    margin-top: -600px /* -192px */;
+  }
+
+}
