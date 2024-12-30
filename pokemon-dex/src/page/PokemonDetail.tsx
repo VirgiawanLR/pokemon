@@ -55,12 +55,12 @@ const PokemonDetail: React.FC = () => {
             className="image-size-lg"/>
           </div>
           <div className="row-span-1 grid grid-rows-2">
-            <div className="row-span-1 gap-2 px-2 grid grid-cols-4 md:gap-4 md:px-4 lg:gap-8 lg:px-8">
+            <div className="row-span-1 gap-2 px-2 grid grid-cols-4 md:gap-4 md:px-4 lg:gap-8 lg:px-8 hover:cursor-pointer">
               {
                 subDetails.map((detail: any, index:number) => {
                   let className: string
                   if (detail.isActive) {
-                    className = "row-span-1  text-lg textPrimary font-bold mx-auto md:text-2xl lg:text-4xl"
+                    className = "row-span-1  text-lg textPrimary font-bold mx-auto md:text-2xl lg:text-4xl "
                   } else {
                     className = "row-span-1  text-lg textSecondary font-bold mx-auto md:text-2xl lg:text-4xl"
                   }

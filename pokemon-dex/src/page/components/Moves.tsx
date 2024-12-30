@@ -12,7 +12,7 @@ const Moves: React.FC<PokeMove> = ({moves}) => {
   const [page, setPage] = useState<number>(1);
   const [moveState, setMoveState] = useState<PokemonMoves[]>([])
   const [count] = useState<number>(moves.length)
-  const limit: number = 20
+  const limit: number = 10
 
   const fetchMoves: () => void = async () => {
     setIsMoveLoading(true)
@@ -26,7 +26,7 @@ const Moves: React.FC<PokeMove> = ({moves}) => {
     }
 
     let poke : PokemonMoves[] = await Promise.all(
-      movesSlice.map(async (move:PokemonMoves, index: number) => {
+      movesSlice.map(async (move:PokemonMoves) => {
         try {
           const fetchedMove = await getMove(move.url)
           const name: string = move.name
@@ -59,23 +59,40 @@ const Moves: React.FC<PokeMove> = ({moves}) => {
   return (
     <>
     { isMoveLoading ? <div>Loading ...</div> :
-    <div className="overflow-y-auto">
-    <div className="h-full bg-mainBg overflow-y-auto px-8 gap-8 md:px-12 md:gap-12 
-      lg:px-16 lg:gap-20 text-xl md:text-2xl lg:text-4xl py-4">
-      {moveState.map((move: PokemonMoves, index:number) => {
-        return (
-          <div className="grid grid-cols-3 text-white text-lg md:text-4xl" key={index} >
-            <div className=" col-span-1 textSecondary my-auto">{move.name}</div>
-            <div className={`col-span-2 font-bold my-auto h-3/4 overflow-hidden rounded-xl md:h-full ${move.type}`}
-            >
-              <div className="h-full w-full">
-                <p className="font-extrabold md:text-6xl">{move.name}</p></div>
+    <div className="overflow-y-auto h-full">
+      <div className="h-fit bg-mainBg overflow-y-auto px-2 md:px-6  
+        lg:px-10 pb-4">
+        {moveState.map((move: PokemonMoves, index:number) => {
+          return (
+            <div className="grid grid-cols-4 text-white text-base md:text-2xl lg:text-4xl xl:text:5xl my-4 h-fit" key={index} >
+              <div className=" col-span-1 textSecondary my-auto font-semibold">{move.name}</div>
+              <div className={`col-span-3 font-bold my-auto h-fit overflow-hidden rounded-xl ${move.type}`}
+              >
+                <div className="grid grid-cols-4 text-base pl-4 py-2 gap-2">
+                  {Object.keys(move).map((key) => {
+                    const typedKey = key as keyof PokemonMoves
+                    if (key == "url" || key == "name") return <></>
+
+                    return (
+                      <div className="grid grid-rows-2 w-fit md:text-xl lg:text-3xl xl:text:4xl">
+                        <div className="row-span-1 mx-auto">{
+                          key == "lvl_learnt" ? "at level" : typedKey
+                        }</div>
+                        <div className="row-span-1 mx-auto">{
+                        move[typedKey] ? 
+                          move[typedKey] : 
+                          key == "lvl_learnt" ? 0 : "-"
+                        }</div>
+                      </div>
+                    )
+                  })}
+                  </div>
+              </div>
             </div>
-          </div>
-        )
-      })}
-    </div>
-    <Pagination page={page} setPage={setPage} limit={limit} count={count}/>
+          )
+        })}
+        <Pagination page={page} setPage={setPage} limit={limit} count={count}/>
+      </div>
     </div>
     }
     </>
